@@ -27,9 +27,10 @@ SECRET_KEY = '!t7=&p!y$chb4av%pn-y-csy^05)03_l!kzlu(r-k*jlk5q7)h'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'heroku.com'
-]
-
+    '127.0.0.1', 
+    'localhost', 
+    'heroku.com', 
+    'herokuapp.com']
 
 # Application definition
 
@@ -52,6 +53,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
+)
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -121,7 +128,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
