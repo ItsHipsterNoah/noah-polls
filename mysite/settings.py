@@ -27,10 +27,7 @@ SECRET_KEY = '!t7=&p!y$chb4av%pn-y-csy^05)03_l!kzlu(r-k*jlk5q7)h'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', 
-    '0.0.0.0'
-    'localhost', 
-    'noah-polls.herokuapp.com/', ]
+    '*', ]
 
 # Application definition
 
@@ -86,8 +83,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcrtn7ft93dj7u',
+        'HOST': 'ec2-52-45-140-104.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'tscdftaonsychu',
+        'PASSWORD':'ab0199ed591481485ce255efd9775a5e483e7005017be7c75c13d44cd2857cce'
     }
 }
 
