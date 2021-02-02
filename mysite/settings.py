@@ -28,9 +28,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 
+    '0.0.0.0'
     'localhost', 
-    'heroku.com', 
-    'herokuapp.com']
+    'noah-polls.herokuapp.com/', ]
 
 # Application definition
 
